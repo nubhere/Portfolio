@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megha Rathod | Architectural Designer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #1a1a1a;
+            --text-muted: #666666;
+            --accent-color: #2b2b2b;
+            --border-color: #e5e5e5;
+            --card-bg: #ffffff;
+            --admin-bg: #111827;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(252, 252, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        header {
+            padding: 5rem 5% 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-bio {
+            font-size: 1.05rem;
+            max-width: 800px;
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+        }
+
+        .contact-pills {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: #f0f0f0;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group h4 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #eef2f5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0.2rem 0;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Editor Control Panel & Floating Trigger */
+        .admin-trigger {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--admin-bg);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-panel.active {
+            right: 0;
+        }
+
+        .admin-header {
+            background: var(--admin-bg);
+            color: #fff;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .btn-primary { background: var(--text-color); color: #fff; }
+        .btn-danger { background: #e63946; color: #fff; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .admin-panel { width: 100%; right: -100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" id="navName">Megha Rathod</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Header -->
+    <header id="about">
+        <h1 class="hero-title" id="heroName">Megha Rathod</h1>
+        <p class="hero-subtitle" id="heroTitle">Architectural Designer | Toronto, ON</p>
+        <p class="hero-bio" id="heroBio">
+            I'm an architectural designer with experience across residential, hospitality, retail, and mixed-use projects in India, including full design development, construction documentation, and on-site detailing. I've also contributed technical drawings and documentation to a US institutional project (Camp Krasna, Monticello NY), working within North American code and construction standards[cite: 1]. I'm now based in Toronto and looking to bring that combination of design sensibility and construction-ready documentation to a Canadian practice[cite: 1].
+        </p>
+        <div class="contact-pills">
+            <a href="mailto:rathodmegha15@gmail.com" class="pill" id="heroEmail">📧 rathodmegha15@gmail.com[cite: 1]</a>
+            <a href="tel:+14374451597" class="pill" id="heroPhone">📞 +1 (437) 445-1597[cite: 1]</a>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <h2 class="section-title">Skills & Software[cite: 1]</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h4>Software Proficiency[cite: 1]</h4>
+                <div class="skill-tags">
+                    <span class="tag">AutoCAD[cite: 1]</span>
+                    <span class="tag">Revit[cite: 1]</span>
+                    <span class="tag">SketchUp[cite: 1]</span>
+                    <span class="tag">Enscape / V-Ray[cite: 1]</span>
+                    <span class="tag">Adobe Creative Suite[cite: 1]</span>
+                    <span class="tag">Microsoft Office[cite: 1]</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Core Architectural Skills[cite: 1]</h4>
+                <div class="skill-tags">
+                    <span class="tag">Construction Documentation & Detailing[cite: 1]</span>
+                    <span class="tag">BIM Modeling & Drawing Sets[cite: 1]</span>
+                    <span class="tag">Design Development[cite: 1]</span>
+                    <span class="tag">Material Selection[cite: 1]</span>
+                    <span class="tag">Vernacular & Climate-Responsive Design[cite: 1]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio Section -->
+    <section class="projects-section" id="projects">
+        <h2 class="section-title">Selected Works[cite: 1]</h2>
+        <div class="projects-grid" id="projectsContainer">
+            <!-- Projects render dynamically via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p id="footerText">© 2026 Megha Rathod. All Rights Reserved.[cite: 1]</p>
+    </footer>
+
+    <!-- Floating Editor Controls -->
+    <button class="admin-trigger" onclick="toggleAdminPanel()">✏️ Edit Website</button>
+
+    <!-- Sliding Admin Sidebar Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h3>Portfolio Live Editor</h3>
+            <button class="btn btn-secondary" onclick="toggleAdminPanel()">✕</button>
+        </div>
+        <div class="admin-body">
+            <h4 style="margin-bottom: 0.8rem;">Profile Details</h4>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="editName" value="Megha Rathod">
+            </div>
+            <div class="form-group">
+                <label>Title & Location</label>
+                <input type="text" id="editTitle" value="Architectural Designer | Toronto, ON">
+            </div>
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea id="editBio" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" id="editEmail" value="rathodmegha15@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" id="editPhone" value="+1 (437) 445-1597">
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-bottom: 2rem;" onclick="saveProfileChanges()">Save Profile Info</button>
+
+            <h4 style="margin-bottom: 0.8rem;">Add New Project</h4>
+            <div class="form-group">
+                <label>Project Title</label>
+                <input type="text" id="newProjTitle" placeholder="e.g. Modern Villa">
+            </div>
+            <div class="form-group">
+                <label>Type & Location</label>
+                <input type="text" id="newProjMeta" placeholder="e.g. Residential - Toronto, ON">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="newProjDesc" rows="3" placeholder="Project overview..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Image (Upload or Place URL)</label>
+                <input type="file" id="newProjImgFile" accept="image/*" style="margin-bottom: 0.5rem;">
+                <input type="text" id="newProjImgUrl" placeholder="Or paste image URL">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="addNewProject()">Add Project</button>
+        </div>
+    </div>
+
+    <script>
+        // Initial Portfolio Data Extracted from PDF
+        const initialProjects = [
+            {
+                id: "00",
+                title: "Camp Krasna",
+                meta: "Institutional | Monticello, NY (US) • 25,450 SQFT",
+                desc: "Technical drawings and construction documentation within North American code and construction standards. Features multi-level site design, natural light/ventilation integration, and detailed millwork schedules.",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: "01",
+                title: "Project Scoop",
+                meta: "Retail Interior | Ice Cream & Snack Store",
+                desc: "Complete interior spatial design, custom fabrication detailing for display racks, arches with embedded profile lighting, and custom millwork detailing.",
+                image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: "02",
+                title: "Project Ambawadi",
+                meta: "Residential | Contemporary Vernacular Farm House",
+                desc: "Contemporary vernacular farmhouse inspired by South Indian architecture with pitched clay-tiled roof, exposed wooden rafters, wraparound verandah, and a sloped pergola terrace.",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: "03",
+                title: "Project The Palms",
+                meta: "Hospitality | Restaurant Design",
+                desc: "Earthen aesthetic driven by terracotta colors and semi-transparent jali screens for light modulation, coupled with biophilic botanical wall coverings internally.",
+                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: "04",
+                title: "Project A163",
+                meta: "Residential Architecture & Interior | Bungalow",
+                desc: "Full structural build from scratch including double-height dining, skylight staircase planter, slit window master bedroom, and brick screen pergola terrace.",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: "05",
+                title: "Project The Screen",
+                meta: "Mixed Use | Residential & Commercial",
+                desc: "Layered volumes with bold cantilevers, double-height office base, and vertical terracotta-toned shading screens providing environmental performance.",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        // Load data from localStorage or fallback to defaults
+        let projects = JSON.parse(localStorage.getItem('portfolio_projects')) || initialProjects;
+
+        function renderProjects() {
+            const container = document.getElementById('projectsContainer');
+            container.innerHTML = '';
+
+            projects.forEach((proj, index) => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <img src="${proj.image}" class="project-img" alt="${proj.title}">
+                    <div class="project-info">
+                        <span class="project-number">Project ${proj.id}</span>
+                        <h3 class="project-title">${proj.title}</h3>
+                        <p class="project-meta">${proj.meta}</p>
+                        <p class="project-desc">${proj.desc}</p>
+                        <div class="card-actions">
+                            <button class="btn btn-danger" onclick="deleteProject(${index})">Remove</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function toggleAdminPanel() {
+            document.getElementById('adminPanel').classList.toggle('active');
+            document.getElementById('editBio').value = document.getElementById('heroBio').innerText.trim();
+        }
+
+        function saveProfileChanges() {
+            const name = document.getElementById('editName').value;
+            const title = document.getElementById('editTitle').value;
+            const bio = document.getElementById('editBio').value;
+            const email = document.getElementById('editEmail').value;
+            const phone = document.getElementById('editPhone').value;
+
+            document.getElementById('navName').innerText = name;
+            document.getElementById('heroName').innerText = name;
+            document.getElementById('heroTitle').innerText = title;
+            document.getElementById('heroBio').innerText = bio;
+            document.getElementById('heroEmail').innerText = `📧 ${email}`;
+            document.getElementById('heroPhone').innerText = `📞 ${phone}`;
+            document.getElementById('footerText').innerText = `© 2026 ${name}. All Rights Reserved.`;
+
+            toggleAdminPanel();
+        }
+
+        function addNewProject() {
+            const title = document.getElementById('newProjTitle').value;
+            const meta = document.getElementById('newProjMeta').value;
+            const desc = document.getElementById('newProjDesc').value;
+            const fileInput = document.getElementById('newProjImgFile');
+            const urlInput = document.getElementById('newProjImgUrl').value;
+
+            if (!title) return alert('Please enter a project title.');
+
+            const createProj = (imgSrc) => {
+                const newProj = {
+                    id: String(projects.length + 1).padStart(2, '0'),
+                    title: title,
+                    meta: meta,
+                    desc: desc,
+                    image: imgSrc || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'
+                };
+                projects.push(newProj);
+                localStorage.setItem('portfolio_projects', JSON.stringify(projects));
+                renderProjects();
+
+                // Clear Form
+                document.getElementById('newProjTitle').value = '';
+                document.getElementById('newProjMeta').value = '';
+                document.getElementById('newProjDesc').value = '';
+                document.getElementById('newProjImgUrl').value = '';
+                fileInput.value = '';
+            };
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) { createProj(e.target.result); };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                createProj(urlInput);
+            }
+        }
+
+        function deleteProject(index) {
+            if (confirm('Are you sure you want to delete this project?')) {
+                projects.splice(index, 1);
+                localStorage.setItem('portfolio_projects', JSON.stringify(projects));
+                renderProjects();
+            }
+        }
+
+        // Initialize display
+        renderProjects();
+    </script>
+</body>
+</html>
